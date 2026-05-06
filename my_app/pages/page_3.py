@@ -7,9 +7,9 @@ from pathlib import Path
 
 #データ分析関連
 st.subheader('データ分析関連')
-# main_app.pyから見て 辻堂気象データ.csv を読み込む場合
-current_dir = Path(__file__).parent  # main_app.pyがあるフォルダ
-file_path = current_dir / "data" / "辻堂気象データ.csv"
+# page_3.pyから見て 辻堂気象データ.csv を読み込む場合
+dir = Path(__file__).parents[1]  # page_3.pyの親の親フォルダ
+file_path = dir / "data" / "辻堂気象データ.csv"
 
 if os.path.exists(file_path):
     df = pd.read_csv(file_path, index_col='年月')
