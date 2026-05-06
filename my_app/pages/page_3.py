@@ -41,6 +41,7 @@ if os.path.exists(file_path):
         # Linux系でフォントがない場合は別途インストールが必要な場合があります
         plt.rcParams['font.family'] = 'DejaVu Sans'
     st.pyplot(fig)
+    st.write(f'検知したOS: {os_name}')
 else:
     # どこを探して失敗したか画面に表示させる（デバッグ用）
     st.error(f"ファイルが見つかりません。検索パス: {file_path}")
