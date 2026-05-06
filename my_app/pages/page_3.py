@@ -2,10 +2,14 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import platform
+from pathlib import Path
 
 #データ分析関連
 st.subheader('データ分析関連')
-df = pd.read_csv('./data/辻堂気象データ.csv', index_col='年月')
+# main_app.pyから見て 辻堂気象データ.csv を読み込む場合
+current_dir = Path(__file__).parent  # main_app.pyがあるフォルダ
+file_path = current_dir / "data" / "辻堂気象データ.csv"
+df = pd.read_csv(file_path, index_col='年月')
 # インデックスを日付型に変換する(index_colで年月を指定しているため、インデックスが年月になっている)
 df.index = pd.to_datetime(df.index)
 # インデックスでソートする
