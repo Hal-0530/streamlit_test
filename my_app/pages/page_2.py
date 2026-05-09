@@ -2,7 +2,7 @@ import streamlit as st
 import datetime
 
 # 左右に設置した箱（コンテナ）の高さを数値（pixel）で指定する
-container_height = 300
+container_height = 1200
 
 st.title('フォームと画面分割の例')
 
