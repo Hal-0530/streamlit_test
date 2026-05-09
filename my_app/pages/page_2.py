@@ -35,8 +35,8 @@ with col1:
         agree = st.checkbox('テストチェックボックスです')
 
         #ボタン form_submit_buttonはフォーム内でしか使えないため、通常のbuttonに変更
-        submit_btn = st.submit_button('送信')
-        cancel_btn = st.cancel_button('キャンセル')
+        submit_btn = st.button('送信')
+        cancel_btn = st.button('キャンセル')
 
 with col2:
     # st.formからst.containerに変更。ボタンに反応して処理を行う部分を別のフォームに移動したところエラーが出たため、フォームは使わない
