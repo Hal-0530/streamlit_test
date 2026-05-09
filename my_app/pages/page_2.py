@@ -1,38 +1,43 @@
 import streamlit as st
 import datetime
 
-st.subheader('フォームの例')
+st.title('フォームと画面分割の例')
 
-with st.form(key='my_form1'):
-    #テキストボックス
-    name = st.text_input('名前を入力してください')
-    address = st.text_input('住所を入力してください')
+col1, col2 = st.columns(2)
+with col1:
 
-    #セレクトボックス
-    age_category = st.selectbox('年齢を選択してください', ['10代', '20代', '30代', '40代', '50代以上'])
+    with st.form(key='my_form1'):
+        #テキストボックス
+        name = st.text_input('名前を入力してください')
+        address = st.text_input('住所を入力してください')
 
-    #ラジオボタン
-    gender = st.radio('性別を選択してください', ['男性', '女性', 'その他'])
+        #セレクトボックス
+        age_category = st.selectbox('年齢を選択してください', ['10代', '20代', '30代', '40代', '50代以上'])
 
-    #複数選択可能（マルチセレクト）
-    hobbies = st.multiselect('趣味を選択してください', ['スポーツ', '音楽', '映画', '読書', '旅行', '料理', 'ゲーム', 'プログラミング', '釣り'])
+        #ラジオボタン
+        gender = st.radio('性別を選択してください', ['男性', '女性', 'その他'])
 
-    #スライダー
-    height = st.slider('身長を選択してください', 50, 250, 170)
-    weight = st.slider('体重を選択してください', 20, 200, 60)
+        #複数選択可能（マルチセレクト）
+        hobbies = st.multiselect('趣味を選択してください', ['スポーツ', '音楽', '映画', '読書', '旅行', '料理', 'ゲーム', 'プログラミング', '釣り'])
 
-    #日付
-    start_date = st.date_input('開始日を選択してください', datetime.date.today())
+        #スライダー
+        height = st.slider('身長を選択してください', 50, 250, 170)
+        weight = st.slider('体重を選択してください', 20, 200, 60)
 
-    #カラーピッカー
-    color = st.color_picker('好きな色を選択してください', '#00f900')
+        #日付
+        start_date = st.date_input('開始日を選択してください', datetime.date.today())
 
-    #チェックボックス
-    agree = st.checkbox('テストチェックボックスです')
+        #カラーピッカー
+        color = st.color_picker('好きな色を選択してください', '#00f900')
 
-    #ボタン
-    submit_btn = st.form_submit_button('送信')
-    cancel_btn = st.form_submit_button('キャンセル')
+        #チェックボックス
+        agree = st.checkbox('テストチェックボックスです')
+
+        #ボタン
+        submit_btn = st.form_submit_button('送信')
+        cancel_btn = st.form_submit_button('キャンセル')
+
+with col2:
     if submit_btn:
         st.text(f'こんにちは、{name}さん！ 住所は{address}ですね！')
         st.text(f'年齢は{age_category}、性別は{gender}ですね！')

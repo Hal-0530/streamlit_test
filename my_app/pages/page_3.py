@@ -2,12 +2,11 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
-import platform
 import os
 from pathlib import Path
 
 #データ分析関連
-st.subheader('データ分析関連')
+st.title('データ分析の例')
 
 # 辻堂気象データ.csv のパスを指定する
 dir = Path(__file__).parents[1]  # page_3.pyの親の親フォルダ
@@ -34,15 +33,19 @@ if os.path.exists(file_path):
     # インデックスでソートする
     df = df.sort_index()
 
-    st.write('データフレームとして表示した場合')
+    st.subheader('データフレームとして表示した場合')
     st.dataframe(df,column_config={"年月": st.column_config.DatetimeColumn(format="YYYY-MM")})
-    st.write('テーブルとして表示した場合')
+
+    st.subheader('テーブルとして表示した場合')
     st.table(df)
-    st.write('折れ線グラフとして表示した場合')
+
+    st.subheader('折れ線グラフとして表示した場合')
     st.line_chart(df[['平均気温(℃)', '日最高気温の平均(℃)', '日最低気温の平均(℃)']])
-    st.write('棒グラフとして表示した場合')
+
+    st.subheader('棒グラフとして表示した場合')
     st.bar_chart(df['降水量の合計(mm)'])
-    st.write('matplotlibでグラフを表示した場合')
+
+    st.subheader('matplotlibでグラフを表示した場合')
     fig, ax = plt.subplots()
     ax.plot(df.index, df['平均気温(℃)'])
     ax.set_title('辻堂平均気温の推移', fontproperties=font_prop)
