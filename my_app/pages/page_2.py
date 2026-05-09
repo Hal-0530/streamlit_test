@@ -38,14 +38,15 @@ with col1:
         cancel_btn = st.form_submit_button('キャンセル')
 
 with col2:
-    if submit_btn:
-        st.text(f'こんにちは、{name}さん！ 住所は{address}ですね！')
-        st.text(f'年齢は{age_category}、性別は{gender}ですね！')
-        st.text(f'身長は{height}cm、体重は{weight}kgですね！')
-        st.text(f'趣味は{", ".join(hobbies)}ですね！')
-        st.text(f'開始日は{start_date}ですね！')
-        st.text(f'チェックボックスの状態: {agree}')
-        st.write(f'好きな色は<span style="color:{color}">{color}</span>ですね！', unsafe_allow_html=True)
+    with st.form(key='my_form2'):
+        if submit_btn:
+            st.text(f'こんにちは、{name}さん！ 住所は{address}ですね！')
+            st.text(f'年齢は{age_category}、性別は{gender}ですね！')
+            st.text(f'身長は{height}cm、体重は{weight}kgですね！')
+            st.text(f'趣味は{", ".join(hobbies)}ですね！')
+            st.text(f'開始日は{start_date}ですね！')
+            st.text(f'チェックボックスの状態: {agree}')
+            st.write(f'好きな色は<span style="color:{color}">{color}</span>ですね！', unsafe_allow_html=True)
 
-    if cancel_btn:
-        st.text('キャンセルされました')
+        if cancel_btn:
+            st.text('キャンセルされました')
