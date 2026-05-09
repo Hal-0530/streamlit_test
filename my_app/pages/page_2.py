@@ -6,7 +6,8 @@ st.title('フォームと画面分割の例')
 col1, col2 = st.columns(2)
 with col1:
 
-    with st.form(key='my_form1'):
+    # st.formからst.containerに変更。ボタンに反応して処理を行う部分を別のフォームに移動したところエラーが出たため、フォームは使わない
+    with st.container(border=True):
         #テキストボックス
         name = st.text_input('名前を入力してください')
         address = st.text_input('住所を入力してください')
@@ -33,13 +34,14 @@ with col1:
         #チェックボックス
         agree = st.checkbox('テストチェックボックスです')
 
-        #ボタン
-        submit_btn = st.form_submit_button('送信')
-        cancel_btn = st.form_submit_button('キャンセル')
+        #ボタン form_submit_buttonはフォーム内でしか使えないため、通常のbuttonに変更
+        submit_btn = st.submit_button('送信')
+        cancel_btn = st.cancel_button('キャンセル')
 
 with col2:
-    with st.form(key='my_form2'):
-        if submit_btn:
+    # st.formからst.containerに変更。ボタンに反応して処理を行う部分を別のフォームに移動したところエラーが出たため、フォームは使わない
+    with st.container(border=True):
+          if submit_btn:
             st.text(f'こんにちは、{name}さん！ 住所は{address}ですね！')
             st.text(f'年齢は{age_category}、性別は{gender}ですね！')
             st.text(f'身長は{height}cm、体重は{weight}kgですね！')
@@ -48,5 +50,5 @@ with col2:
             st.text(f'チェックボックスの状態: {agree}')
             st.write(f'好きな色は<span style="color:{color}">{color}</span>ですね！', unsafe_allow_html=True)
 
-        if cancel_btn:
-            st.text('キャンセルされました')
+            if cancel_btn:
+                st.text('キャンセルされました')
