@@ -1,13 +1,16 @@
 import streamlit as st
 import datetime
 
+# 左右に設置した箱（コンテナ）の高さを数値（pixel）で指定する
+container_height = 300
+
 st.title('フォームと画面分割の例')
 
 col1, col2 = st.columns(2)
 with col1:
 
     # st.formからst.containerに変更。ボタンに反応して処理を行う部分を別のフォームに移動したところエラーが出たため、フォームは使わない
-    with st.container(border=True):
+    with st.container(border=True, height=container_height):
         #テキストボックス
         name = st.text_input('名前を入力してください')
         address = st.text_input('住所を入力してください')
@@ -40,7 +43,7 @@ with col1:
 
 with col2:
     # st.formからst.containerに変更。ボタンに反応して処理を行う部分を別のフォームに移動したところエラーが出たため、フォームは使わない
-    with st.container(border=True):
+    with st.container(border=True, height=container_height):
           if submit_btn:
             st.text(f'こんにちは、{name}さん！ 住所は{address}ですね！')
             st.text(f'年齢は{age_category}、性別は{gender}ですね！')
