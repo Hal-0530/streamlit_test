@@ -46,7 +46,7 @@ if st_is_mobile():
 else:
     st.write('PC端末でアクセスしています')
 
-st.page_link(current_dir / "pages/page1.py", label="ページ1へ移動")
-st.page_link(current_dir / "pages/page2.py", label="ページ2へ移動")
-st.page_link(current_dir / "pages/page3.py", label="ページ3へ移動")
-st.page_link(current_dir / "pages/page4.py", label="ページ4へ移動")
+st.page_link(current_dir / "pages/page_1.py", label="ページ1へ移動")
+st.page_link(current_dir / "pages/page_2.py", label="ページ2へ移動")
+st.page_link(current_dir / "pages/page_3.py", label="ページ3へ移動")
+st.page_link(current_dir / "pages/page_4.py", label="ページ4へ移動")
